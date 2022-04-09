@@ -1,2 +1,3 @@
 # CV-Project
-This is my CV website that I had a go at after learning css and html 
+This is my CV website that I had a go at after learning css and html.
+Do not change a thing.
