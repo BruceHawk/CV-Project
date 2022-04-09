@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>        
+        function validateMail(p1, p2) {
+        if (p1.value != p2.value || p1.value == '' || p2.value == '') {
+            p2.setCustomValidity('email incorrect');
+        } else {
+            p2.setCustomValidity('');
+        }
+        }
+        </script>
+    
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            
+            <h3>GET IN TOUCH</h3>
+            
+            <label id="nameField"> First Name</label><input required>
+            <label id="emailField">Email</label><input type='email' id='p1'>
+            <label >Confirm Email</label><input type='email' 
+              onfocus="validateMail(document.getElementById('p1'), this);" 
+              oninput="validateMail(document.getElementById('p1'), this);">
+              <label id="phoneField" >Telephone</label><input >
+              <label id="dateField" > Date and time of project</label><input type='date' required>
+            <label> <input type = "checkbox" name="cbx" value="sms"/>Text</label><br>
+			<label><input type="checkbox" name="cbx" value= "emails"/>Email</label><br><br> 
+            <label> <input type = "radio" name="rd" value="hours"/>1 hour</label><br>
+			<label ><input type="radio" name="rd" value= "hours"/>2 hours</label><br><br>
+            <label > Duration of inquiry</label><input type='time' required> <br><br>
+            <textarea id="message" rows="4" placeholder="How can I help you?"></textarea> <br>
+            <button type="submit">Send</button>
+        </form>
+    </div> 
+    <script> const wrapper = document.querySelector ('.wrapper'),
+        form  = wrapper.querySelector('.form'),
+        submitInput = form[0].querySelector('input[type="submit"]');
+        
+        
+        function getDataForm(e) {
+            e.preventDefault
+            var formData = new FormData();
+        
+            alert( formData.get('nameField') + '  '+ 
+            formData.get('emailField') + ' ' + 
+            formData.get('phoneField') + ' '+ 
+            formData.get('smsField') + ' '+ 
+            formData.get('emaiilField') + ' '+ 
+            formData.get('durationField') + ' '+ 
+            formData.get('duration1Field') + ' '+ 
+            formData.get('durationEnquiry') + ' '+ 
+            formData.get('messageField') + ' '+ 
+            formData.get('dateField'));
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+        submitInput.addEventListener('click', getDataForm, false);
+        }, false);
+        
+        </script>
+</body>
+</html>
